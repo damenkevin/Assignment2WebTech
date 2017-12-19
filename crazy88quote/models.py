@@ -16,4 +16,4 @@ class Quote(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.quoted_person
