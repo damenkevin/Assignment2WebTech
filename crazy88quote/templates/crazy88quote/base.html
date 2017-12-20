@@ -1,0 +1,139 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Quotes</title>
+
+    <!-- Bootstrap Core CSS -->
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../static/css/custom.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Crazy 88/Quoteboard</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="index.html"><i class="fa fa-trophy fa-fw"></i> Crazy 88</a>
+                    </li>
+                    <li>
+                        <a href="quote.html"><i class="fa fa-comments fa-fw"></i> Quotes</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../js/custom.js"></script>
+
+<!-- DataTables script-->
+<script>
+    var clicks = 0;
+    var part2 = '<div class="timeline-badge warning"><i class="fa fa-comment"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">';
+    var part3 = '</h4><p><small class="text-muted"><i class="fa fa-clock-o"></i> a few seconds ago</small></p></div><div class="timeline-body"><p>"';
+    var part4 = '"</p></div></div></li>';
+
+    $('#submit').click(function() {
+        $("#form").submit(function(e) {
+            e.preventDefault();
+        });
+        if (document.getElementById("name").value != '' && document.getElementById("quote").value != '') {
+            if (clicks == 0) {
+                var part1 = '<li class="timeline-inverted animation">';
+            } else {
+                part1 = '<li class="animation">';
+            }
+            if (clicks == 0) {
+                clicks = 1;
+            } else {
+                clicks = 0;
+            }
+            // alert(part1);
+            var name = document.getElementById("name").value;
+            var quote = document.getElementById("quote").value;
+            // alert(name);
+            // alert(quote);
+            var old = document.getElementById("newquote").nextElementSibling.innerHTML;
+            document.getElementById("newquote").nextElementSibling.innerHTML = part1 + part2 + name + part3 + quote + part4 + old;
+        }
+    });
+</script>
+
+</body>
+
+</html>
