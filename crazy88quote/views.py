@@ -9,4 +9,4 @@ def quote(request):
 
 def crazy88(request):
 
-    return render(request, 'crazy88/crazy88.html', {})
+    return render(request, 'crazy88quote/crazy88.html', {})

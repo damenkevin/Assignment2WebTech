@@ -58,7 +58,7 @@
                                 <ul class="timeline">
                                     {% for quote in quotes %}
 
-                                        <li class="{% if number == 0 %}
+                                        <li class="{% if  forloop.counter0|divisibleby:2 %}
                                             timeline-inverted
                                         {% endif %} animation"">
                                             <div class="timeline-badge warning"><i class="fa fa-comment"></i>
