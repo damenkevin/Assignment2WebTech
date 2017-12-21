@@ -6,7 +6,6 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from mysite.core.forms import SignUpForm
 
 
 @login_required(login_url='/login/') #redirect when user is not logged in
