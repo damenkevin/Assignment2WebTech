@@ -95,42 +95,6 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="../../static/vendor/metisMenu/metisMenu.min.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="../../static/js/custom.js"></script>
-
-<!-- DataTables script-->
-<script>
-    var clicks = 0;
-    var part2 = '<div class="timeline-badge warning"><i class="fa fa-comment"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">';
-    var part3 = '</h4><p><small class="text-muted"><i class="fa fa-clock-o"></i> a few seconds ago</small></p></div><div class="timeline-body"><p>"';
-    var part4 = '"</p></div></div></li>';
-
-    $('#submit').click(function() {
-        $("#form").submit(function(e) {
-            e.preventDefault();
-        });
-        if (document.getElementById("name").value != '' && document.getElementById("quote").value != '') {
-            if (clicks == 0) {
-                var part1 = '<li class="timeline-inverted animation">';
-            } else {
-                part1 = '<li class="animation">';
-            }
-            if (clicks == 0) {
-                clicks = 1;
-            } else {
-                clicks = 0;
-            }
-            // alert(part1);
-            var name = document.getElementById("name").value;
-            var quote = document.getElementById("quote").value;
-            // alert(name);
-            // alert(quote);
-            var old = document.getElementById("newquote").nextElementSibling.innerHTML;
-            document.getElementById("newquote").nextElementSibling.innerHTML = part1 + part2 + name + part3 + quote + part4 + old;
-        }
-    });
-</script>
-
 </body>
 
 </html>
